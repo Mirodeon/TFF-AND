@@ -229,13 +229,13 @@ class JeuxFragment : Fragment(), JeuxListener {
                         AlertBuilder.messageAlert(
                             it,
                             "Bravo, vous avez récupéré un chat !",
-                            "Allez dans l'onglet mes chats pour le voir et le poser sur la carte."
+                            "Allez dans l'onglet \"mes chats\" pour le voir et le poser sur la carte."
                         )
                     } ?: run {
                         AlertBuilder.messageAlert(
                             it,
                             "Des croquettes !",
-                            "Vous avez gagnés $food croquette(s)"
+                            "Vous avez gagné $food croquette(s)"
                         )
                     }
                     LocationManager.instance[LocationManager.KEY_LOCATION_MANAGER]?.localisationUser?.let { gps ->
