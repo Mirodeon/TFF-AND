@@ -223,6 +223,9 @@ class JeuxFragment : Fragment(), JeuxListener {
         binding.loaderView.visibility = View.VISIBLE
         GameDataManager.instance.interactInterestPoint(id.toInt()) { cat, food, _, code ->
             binding.loaderView.visibility = View.GONE
+            LocationManager.instance[LocationManager.KEY_LOCATION_MANAGER]?.localisationUser?.let {
+                ReposGoogleMap.getInstance().setPosition(it, ColorChoice.Green)
+            }
             activity?.let {
                 if (code == 200) {
                     cat?.let { chat ->
