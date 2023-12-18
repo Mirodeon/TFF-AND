@@ -138,10 +138,12 @@ class JeuxFragment : Fragment(), JeuxListener {
         if (GameDataManager.instance.isModeDemo) {
             binding.relativeLayoutJoystick.visibility = View.VISIBLE
             binding.BtnJoystick.alpha = 1.0F
+            LocationManager.instance[LocationManager.KEY_LOCATION_MANAGER]?.removeUpdates()
             //binding.BtnJoystick.setColorFilter(Color.rgb(80, 255, 80)) // Assurez-vous que votre couleur est définie correctement
         } else {
-            binding.relativeLayoutJoystick?.visibility = View.GONE
+            binding.relativeLayoutJoystick.visibility = View.GONE
             binding.BtnJoystick.alpha = 0.3F
+            LocationManager.instance[LocationManager.KEY_LOCATION_MANAGER]?.getLastKnownLocation()
             //binding.BtnJoystick.setColorFilter(Color.rgb(255, 80, 80)) // Assurez-vous que votre couleur est définie correctement
         }
     }
